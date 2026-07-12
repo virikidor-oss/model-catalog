@@ -4,8 +4,6 @@ import { isDatabaseAvailable } from "@/lib/db";
 import { getModelsFromMock } from "@/lib/mock-data";
 import { z } from "zod";
 
-
-
 const modelsQuerySchema = z.object({
   brand: z.string().optional(),
   type: z.string().optional(),
@@ -21,14 +19,14 @@ const createModelSchema = z.object({
   year: z.number().int().min(1900).max(2100),
   scale: z.string().min(1, "Масштаб обязателен").max(20),
   type: z.string().min(1, "Тип кузова обязателен").max(100),
-  manufacturer: z.string().max(200).default(""),
+  manufacturer: z.string().min(1, "Производитель обязателен").max(200),
   description: z.string().min(1, "Описание обязательно").max(5000),
-  history: z.string().max(10000).default(""),
+  history: z.string().min(1, "История обязательна").max(10000),
   imageUrl: z.string().max(500000).optional(),
   images: z.array(z.string().max(500000)).max(10).optional(),
   coverIndex: z.number().int().min(0).optional(),
-  category: z.enum(["civil", "military"]).default("civil"),
-  subcategory: z.enum(["passenger", "truck"]).default("passenger"),
+  category: z.string().optional(),
+  subcategory: z.string().optional(),
 });
 
 export async function GET(request: NextRequest) {
