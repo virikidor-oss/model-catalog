@@ -25,8 +25,8 @@ const createModelSchema = z.object({
   imageUrl: z.string().max(500000).optional(),
   images: z.array(z.string().max(500000)).max(10).optional(),
   coverIndex: z.number().int().min(0).optional(),
-  category: z.string().optional(),
-  subcategory: z.string().optional(),
+  category: z.enum(["civil", "military"]).optional(),
+  subcategory: z.enum(["passenger", "truck"]).optional(),
 });
 
 export async function GET(request: NextRequest) {
