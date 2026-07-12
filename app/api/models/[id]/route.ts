@@ -1,14 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getModelById, updateModel, deleteModel } from "@/lib/models";
 import { isDatabaseAvailable } from "@/lib/db";
-import { getModelByIdFromMock, mockCarModels } from "@/lib/mock-data";
+import { getModelByIdFromMock } from "@/lib/mock-data";
 import { z } from "zod";
-
-
-  return mockCarModels.map((model) => ({
-    id: model.id,
-  }));
-}
 
 const updateModelSchema = z.object({
   brand: z.string().min(1).max(100).optional(),
@@ -22,16 +16,15 @@ const updateModelSchema = z.object({
   imageUrl: z.string().max(500000).optional(),
   images: z.array(z.string().max(500000)).max(10).optional(),
   coverIndex: z.number().int().min(0).optional(),
-  category: z.enum(["civil", "military"]).optional(),
-  subcategory: z.enum(["passenger", "truck"]).optional(),
+  category: z.string().optional(),
+  subcategory: z.string().optional(),
 });
 
 export async function GET(
-  _request: NextRequest,
+  request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-
   const dbAvailable = await isDatabaseAvailable();
 
   if (!dbAvailable) {
@@ -59,10 +52,9 @@ export async function PUT(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-
   const body = await request.json();
-  const parsed = updateModelSchema.safeParse(body);
 
+  const parsed = updateModelSchema.safeParse(body);
   if (!parsed.success) {
     return NextResponse.json(
       { error: "Некорректные данные", details: parsed.error.flatten() },
@@ -71,7 +63,6 @@ export async function PUT(
   }
 
   const dbAvailable = await isDatabaseAvailable();
-
   if (!dbAvailable) {
     return NextResponse.json(
       { error: "База данных недоступна" },
@@ -84,11 +75,10 @@ export async function PUT(
 }
 
 export async function DELETE(
-  _request: NextRequest,
+  request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-
   const dbAvailable = await isDatabaseAvailable();
 
   if (!dbAvailable) {
