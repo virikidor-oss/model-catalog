@@ -4,7 +4,7 @@ import { isDatabaseAvailable } from "@/lib/db";
 import { getModelsFromMock } from "@/lib/mock-data";
 import { z } from "zod";
 
-export const dynamic = "force-static";
+
 
 const modelsQuerySchema = z.object({
   brand: z.string().optional(),
