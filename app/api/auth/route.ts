@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isAuthenticated } from "@/lib/auth";
 
-export const dynamic = "force-static";
+
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
