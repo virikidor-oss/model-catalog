@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
-export const dynamic = "force-static";
+
 
 const contactFormSchema = z.object({
   name: z.string().min(1, "Имя обязательно").max(100),
