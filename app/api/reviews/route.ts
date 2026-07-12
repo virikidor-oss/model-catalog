@@ -7,7 +7,7 @@ import {
 } from "@/lib/mock-data";
 import { z } from "zod";
 
-export const dynamic = "force-static";
+
 
 const createReviewSchema = z.object({
   modelId: z.string().min(1, "ID модели обязателен"),
