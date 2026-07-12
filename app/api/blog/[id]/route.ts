@@ -4,9 +4,7 @@ import { isDatabaseAvailable } from "@/lib/db";
 import { getBlogPostByIdFromMock, mockBlogPosts } from "@/lib/mock-data";
 import { updateBlogPostSchema } from "@/lib/validation/blog";
 
-export const dynamic = "force-static";
 
-export function generateStaticParams() {
   return mockBlogPosts.map((post) => ({
     id: post.id,
   }));
