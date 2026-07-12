@@ -3,9 +3,7 @@ import { deleteReview } from "@/lib/models";
 import { isDatabaseAvailable } from "@/lib/db";
 import { mockReviews } from "@/lib/mock-data";
 
-export const dynamic = "force-static";
 
-export function generateStaticParams() {
   return mockReviews.map((review) => ({
     id: review.id,
   }));
