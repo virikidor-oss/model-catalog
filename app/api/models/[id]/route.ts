@@ -4,9 +4,7 @@ import { isDatabaseAvailable } from "@/lib/db";
 import { getModelByIdFromMock, mockCarModels } from "@/lib/mock-data";
 import { z } from "zod";
 
-export const dynamic = "force-static";
 
-export function generateStaticParams() {
   return mockCarModels.map((model) => ({
     id: model.id,
   }));
