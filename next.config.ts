@@ -4,7 +4,7 @@ const basePath =
   process.env.BASE_PATH !== undefined ? process.env.BASE_PATH : "";
 
 const nextConfig: NextConfig = {
-  output: "export",
+  
 
   ...(basePath && {
     basePath,
@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
   }),
 
   images: {
-    unoptimized: true,
+    
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
