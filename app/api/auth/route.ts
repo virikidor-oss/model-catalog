@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { isAuthenticated } from "@/lib/auth";
-
-
+import {
+  createSessionCookie,
+  clearSessionCookie,
+  isAuthenticated,
+} from "@/lib/auth";
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
@@ -20,21 +22,21 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Неверный пароль" }, { status: 401 });
   }
 
-  return NextResponse.json({ success: true });
+  const response = NextResponse.json({ success: true });
+  response.headers.set("Set-Cookie", createSessionCookie());
+  return response;
 }
 
 export async function GET() {
-  try {
-    const authenticated = await isAuthenticated();
-    if (!authenticated) {
-      return NextResponse.json({ authenticated: false }, { status: 401 });
-    }
-    return NextResponse.json({ authenticated: true });
-  } catch {
+  const authenticated = await isAuthenticated();
+  if (!authenticated) {
     return NextResponse.json({ authenticated: false }, { status: 401 });
   }
+  return NextResponse.json({ authenticated: true });
 }
 
 export async function DELETE() {
-  return NextResponse.json({ success: true });
+  const response = NextResponse.json({ success: true });
+  response.headers.set("Set-Cookie", clearSessionCookie());
+  return response;
 }
