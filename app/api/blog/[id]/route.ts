@@ -8,7 +8,8 @@ const updateBlogPostSchema = z.object({
   title: z.string().min(1).max(200).optional(),
   content: z.string().min(1).max(50000).optional(),
   type: z.enum(["note", "article"]).optional(),
-  imageUrl: z.string().max(500000).optional().nullable(),
+    imageUrl: z.string().max(500000).optional(),
+
 });
 
 export async function GET(
