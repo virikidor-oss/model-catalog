@@ -1,21 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getBlogPostById, updateBlogPost, deleteBlogPost } from "@/lib/models";
 import { isDatabaseAvailable } from "@/lib/db";
-import { getBlogPostByIdFromMock, mockBlogPosts } from "@/lib/mock-data";
-import { updateBlogPostSchema } from "@/lib/validation/blog";
+import { getBlogPostByIdFromMock } from "@/lib/mock-data";
+import { z } from "zod";
 
-
-  return mockBlogPosts.map((post) => ({
-    id: post.id,
-  }));
-}
+const updateBlogPostSchema = z.object({
+  title: z.string().min(1).max(200).optional(),
+  content: z.string().min(1).max(50000).optional(),
+  type: z.enum(["note", "article"]).optional(),
+  imageUrl: z.string().max(500000).optional().nullable(),
+});
 
 export async function GET(
-  _request: NextRequest,
+  request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-
   const dbAvailable = await isDatabaseAvailable();
 
   if (!dbAvailable) {
@@ -43,10 +43,9 @@ export async function PUT(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-
   const body = await request.json();
-  const parsed = updateBlogPostSchema.safeParse(body);
 
+  const parsed = updateBlogPostSchema.safeParse(body);
   if (!parsed.success) {
     return NextResponse.json(
       { error: "Некорректные данные", details: parsed.error.flatten() },
@@ -55,7 +54,6 @@ export async function PUT(
   }
 
   const dbAvailable = await isDatabaseAvailable();
-
   if (!dbAvailable) {
     return NextResponse.json(
       { error: "База данных недоступна" },
@@ -68,11 +66,10 @@ export async function PUT(
 }
 
 export async function DELETE(
-  _request: NextRequest,
+  request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-
   const dbAvailable = await isDatabaseAvailable();
 
   if (!dbAvailable) {
