@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B0000"/>
+      <stop offset="100%" style="stop-color:#FF6347"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <ellipse cx="400" cy="580" rx="320" ry="40" fill="rgba(0,0,0,0.15)"/>
+  <g transform="translate(400,300)">
+    <!-- Truck cabin -->
+    <rect x="20" y="-70" width="140" height="100" rx="10" fill="#660000"/>
+    <rect x="30" y="-80" width="120" height="80" rx="8" fill="#8B0000"/>
+    <!-- Windshield -->
+    <rect x="35" y="-75" width="110" height="35" rx="6" fill="#1a0000" opacity="0.6"/>
+    <!-- Truck bed -->
+    <rect x="-220" y="-40" width="240" height="65" rx="5" fill="#4a0000"/>
+    <rect x="-215" y="-35" width="230" height="8" rx="2" fill="#8B0000"/>
+    <rect x="-215" y="-20" width="230" height="8" rx="2" fill="#8B0000"/>
+    <rect x="-215" y="-5" width="230" height="8" rx="2" fill="#8B0000"/>
+    <!-- Wheels -->
+    <ellipse cx="100" cy="45" rx="38" ry="38" fill="#1a0000"/>
+    <ellipse cx="100" cy="45" rx="26" ry="26" fill="#4a0000"/>
+    <ellipse cx="100" cy="45" rx="14" ry="14" fill="#888"/>
+    <ellipse cx="-160" cy="45" rx="38" ry="38" fill="#1a0000"/>
+    <ellipse cx="-160" cy="45" rx="26" ry="26" fill="#4a0000"/>
+    <ellipse cx="-160" cy="45" rx="14" ry="14" fill="#888"/>
+  </g>
+  <text x="400" y="520" text-anchor="middle" font-family="Georgia,serif" font-size="36" font-weight="bold" fill="white" opacity="0.9">Scania R500</text>
+  <text x="400" y="555" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#FFBB99" opacity="0.6">2020 · 1:50 · Tekno</text>
+</svg>

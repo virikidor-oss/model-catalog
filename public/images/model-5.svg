@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#000066"/>
+      <stop offset="100%" style="stop-color:#0044cc"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <ellipse cx="400" cy="580" rx="320" ry="40" fill="rgba(255,255,255,0.05)"/>
+  <g transform="translate(400,300)">
+    <rect x="-190" y="-58" width="380" height="90" rx="18" fill="#000044"/>
+    <rect x="-170" y="-68" width="300" height="68" rx="12" fill="#000066"/>
+    <rect x="-210" y="-32" width="420" height="62" rx="8" fill="#002288"/>
+    <rect x="-230" y="-22" width="460" height="42" rx="6" fill="#000066"/>
+    <rect x="-55" y="-88" width="90" height="25" rx="4" fill="#002288"/>
+    <ellipse cx="-90" cy="44" rx="44" ry="44" fill="#000022"/>
+    <ellipse cx="-90" cy="44" rx="32" ry="32" fill="#000044"/>
+    <ellipse cx="-90" cy="44" rx="18" ry="18" fill="#2266FF"/>
+    <ellipse cx="110" cy="44" rx="44" ry="44" fill="#000022"/>
+    <ellipse cx="110" cy="44" rx="32" ry="32" fill="#000044"/>
+    <ellipse cx="110" cy="44" rx="18" ry="18" fill="#2266FF"/>
+  </g>
+  <text x="400" y="520" text-anchor="middle" font-family="Georgia,serif" font-size="36" font-weight="bold" fill="white" opacity="0.9">Ford Mustang Shelby GT500</text>
+  <text x="400" y="555" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#88bbff" opacity="0.6">1967 · 1:18 · Maisto</text>
+</svg>

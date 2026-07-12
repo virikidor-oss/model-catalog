@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B0000"/>
+      <stop offset="100%" style="stop-color:#DC143C"/>
+    </linearGradient>
+    <linearGradient id="bg2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF4444;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#FFD700;stop-opacity:0.1"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#bg2)"/>
+  <ellipse cx="400" cy="580" rx="320" ry="40" fill="rgba(0,0,0,0.2)"/>
+  <g transform="translate(400,300)">
+    <rect x="-180" y="-60" width="360" height="90" rx="20" fill="#C00000"/>
+    <rect x="-160" y="-70" width="280" height="70" rx="15" fill="#FF1A1A"/>
+    <rect x="-200" y="-35" width="400" height="65" rx="10" fill="#B22222"/>
+    <rect x="-220" y="-25" width="440" height="45" rx="8" fill="#8B0000"/>
+    <ellipse cx="-90" cy="40" rx="42" ry="42" fill="#1a1a1a"/>
+    <ellipse cx="-90" cy="40" rx="32" ry="32" fill="#333"/>
+    <ellipse cx="-90" cy="40" rx="18" ry="18" fill="#555"/>
+    <ellipse cx="110" cy="40" rx="42" ry="42" fill="#1a1a1a"/>
+    <ellipse cx="110" cy="40" rx="32" ry="32" fill="#333"/>
+    <ellipse cx="110" cy="40" rx="18" ry="18" fill="#555"/>
+    <rect x="-50" y="-90" width="80" height="30" rx="5" fill="#FF2222"/>
+    <rect x="-30" y="-95" width="40" height="10" rx="3" fill="#CC0000"/>
+  </g>
+  <text x="400" y="520" text-anchor="middle" font-family="Georgia,serif" font-size="42" font-weight="bold" fill="white" opacity="0.9">Ferrari F40</text>
+  <text x="400" y="550" text-anchor="middle" font-family="sans-serif" font-size="18" fill="white" opacity="0.6">1987 · 1:18 · Bburago</text>
+</svg>
