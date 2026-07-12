@@ -4,7 +4,7 @@ import { isDatabaseAvailable } from "@/lib/db";
 import { mockBlogPosts } from "@/lib/mock-data";
 import { createBlogPostSchema } from "@/lib/validation/blog";
 
-export const dynamic = "force-static";
+
 
 export async function GET() {
   const dbAvailable = await isDatabaseAvailable();
